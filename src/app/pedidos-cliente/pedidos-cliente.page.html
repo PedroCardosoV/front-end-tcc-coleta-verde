@@ -10,26 +10,28 @@
     <ion-card class="card-pedido" *ngFor="let item of solicitacoesAceitas" (click)="abrirPedido(item.id)">
       <div class="status-banner">
         <ng-container [ngSwitch]="item.progress">
-          <span *ngSwitchCase="'created'" class="andamento">CRIADO</span>
-          <span *ngSwitchCase="'accepted'" class="andamento">ACEITO</span>
-          <span *ngSwitchCase="'inProgress'" class="andamento">EM ANDAMENTO</span>
-          <span *ngSwitchCase="'finished'" class="concluido">CONCLUÍDO</span>
-          <span *ngSwitchCase="'expired'" class="pendente">EXPIRADO</span>
+          <span *ngSwitchCase="'created'" class="status-criado">CRIADO</span>
+          <span *ngSwitchCase="'accepted'" class="status-aceito">ACEITO</span>
+          <span *ngSwitchCase="'inProgress'" class="status-em-andamento">EM ANDAMENTO</span>
+          <span *ngSwitchCase="'finished'" class="status-concluido">CONCLUÍDO</span>
+          <span *ngSwitchCase="'expired'" class="status-expirado">EXPIRADO</span>
           <span *ngSwitchDefault>{{ item.progress }}</span>
         </ng-container>
       </div>
+
       <ion-card-header>
         <ion-card-title>Pedido do endereço: {{ item.address.logradouro }}</ion-card-title>
       </ion-card-header>
-      <ion-card-content *ngIf="item.progress === 'finished'" >
+
+      <ion-card-content *ngIf="item.progress === 'finished'">
         Pedido concluído em {{ item.dataConclusao | date:'dd/MM/yy' }}<br>
         Concluído por {{ item.concluidoPor }}
       </ion-card-content>
+
       <ion-card-content>
         Pedido criado em {{ item.createdAt }}
       </ion-card-content>
     </ion-card>
-
 
     <!-- <ion-card class="card-pedido" [routerLink]="['/pedido-cliente']">
       <div class="status-banner andamento">EM ANDAMENTO</div>

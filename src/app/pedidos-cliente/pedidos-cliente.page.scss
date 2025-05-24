@@ -26,25 +26,37 @@ ion-content.fundo-arvores {
   position: absolute;
   top: 0;
   right: 0;
-  color: white;
   font-weight: bold;
   font-size: 12px;
   border-bottom-left-radius: 12px;
   padding-top: 12px;
 }
 
-.status-banner span{
+.status-banner span {
   padding: 12px;
+  display: inline-block;
+  color: #fff; /* Padrão: branco, sobrescrevemos abaixo se necessário */
 }
 
-.status-banner span.concluido {
-  background-color: #0a4e23;
+.status-criado {
+  background-color: #797d8c; /* laranja */
 }
 
-.status-banner span.andamento {
-  background-color: #6c757d;
+.status-aceito {
+  background-color: #89f71a; /* amarelo */
+  color: #000; /* preto para melhor contraste */
 }
 
-.status-banner span.pendente {
-  background-color: #d12d2d;
+.status-em-andamento {
+  background-color: #ffc52c; /* cinza claro */
+  color: #000; /* preto para contraste */
+}
+
+.status-concluido {
+  background-color: #276141; /* verde neon */
+  color: #ffffff;
+}
+
+.status-expirado {
+  background-color: #fb0c06; /* vermelho */
 }
